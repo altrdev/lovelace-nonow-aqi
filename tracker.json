@@ -1,0 +1,9 @@
+{
+  "lovelace-nonow-aqi.bundle": {
+    "updated_at": "2020-04-13",
+    "version": "0.0.1",
+    "remote_location": "https://raw.githubusercontent.com/brunosabot/lovelace-nonow-aqi/master/lovelace-nonow-aqi.js",
+    "visit_repo": "https://github.com/brunosabot/lovelace-nonow-aqi",
+    "changelog": "https://github.com/brunosabot/lovelace-nonow-aqi/releases/latest"
+  }
+}
