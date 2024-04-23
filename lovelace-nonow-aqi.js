@@ -18,29 +18,27 @@ class NonowAqi extends LitElement {
 
   render() {
     const indexState = this.hass.states[this.config.index];
-    const levelState = this.hass.states[this.config.level];
     const index = indexState.state;
     const unit = "AQI";
     const polluant = "PM2.5";
     const polluantIcon = "mdi:molecule";
-    const level = levelState.state;
-    const icon = levelState.attributes.icon;
 
-    const color =
+    const level =
       index < 51
-        ? "var(--label-badge-green)"
+        ? { color: "var(--label-badge-green)", desc: "Buona", icon: "mdi:emoticon" }
         : index < 101
-        ? "var(--label-badge-yellow)"
+        ? { color: "var(--label-badge-yellow)", desc: "Moderato", icon: "mdi:emoticon-happy" }
         : index < 151
-        ? "var(--label-badge-orange)"
+        ? { color: "var(--label-badge-orange)", desc: "Malsano gruppi sensibili", icon: "mdi:emoticon-neutral" }
         : index < 201
-        ? "var(--label-badge-red)"
+        ? { color: "var(--label-badge-red)", desc: "Malsano", icon: "mdi:emoticon-sad" }
         : index < 301
-        ? "var(--label-badge-purple)"
-        : "var(--label-badge-maroon)";
+        ? { color: "var(--label-badge-purple)", desc: "Molto malsano", icon: "mdi:emoticon-angry" }
+        : { color: "var(--label-badge-maroon)", desc: "Pericoloso", icon: "mdi:emoticon-dead" };
+
 
     return html`
-      <ha-card style="background-color: ${color}">
+      <ha-card style="background-color: ${level.color}">
         <div class="aqi__wrapper"">
           <div class="aqi__index">
             ${index}
@@ -51,8 +49,8 @@ class NonowAqi extends LitElement {
             <span>${polluant}</span>
           </div>
           <div class="aqi__level">
-            <ha-icon class="aqi__icon" icon="${icon}"></ha-icon>
-            <span>${level}</span>
+            <ha-icon class="aqi__icon" icon="${level.icon}"></ha-icon>
+            <span>${level.desc}</span>
           </div>
         </div>
       </ha-card>
@@ -60,17 +58,13 @@ class NonowAqi extends LitElement {
   }
 
   setConfig(config) {
-    const { index, level, pollutant } = config;
+    const { index } = config;
 
     if (!index) {
       throw new Error("You must define an index sensor");
     }
 
-    if (!level) {
-      throw new Error("You must define a level sensor");
-    }
-
-    this.config = { index, level, pollutant };
+    this.config = { index };
   }
 
   static get styles() {
