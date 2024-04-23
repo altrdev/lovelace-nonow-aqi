@@ -19,22 +19,25 @@ class NonowAqi extends LitElement {
   render() {
     const indexState = this.hass.states[this.config.index];
     const levelState = this.hass.states[this.config.level];
-    const pollutantState = this.hass.states[this.config.pollutant];
     const index = indexState.state;
-    const unit = indexState.attributes.unit_of_measurement;
-    const polluant = pollutantState.state;
-    const polluantIcon = pollutantState.attributes.icon;
+    const unit = "AQI";
+    const polluant = "PM2.5";
+    const polluantIcon = "mdi:molecule";
     const level = levelState.state;
     const icon = levelState.attributes.icon;
 
     const color =
-      index < 100
+      index < 51
         ? "var(--label-badge-green)"
-        : index < 200
+        : index < 101
         ? "var(--label-badge-yellow)"
-        : index < 500
+        : index < 151
+        ? "var(--label-badge-orange)"
+        : index < 201
         ? "var(--label-badge-red)"
-        : "";
+        : index < 301
+        ? "var(--label-badge-purple)"
+        : "var(--label-badge-maroon)";
 
     return html`
       <ha-card style="background-color: ${color}">
@@ -65,10 +68,6 @@ class NonowAqi extends LitElement {
 
     if (!level) {
       throw new Error("You must define a level sensor");
-    }
-
-    if (!pollutant) {
-      throw new Error("You must define a pollutant sensor");
     }
 
     this.config = { index, level, pollutant };
