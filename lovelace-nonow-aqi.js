@@ -2,8 +2,8 @@ import {
   css,
   html,
   LitElement,
-} from 'https://cdn.jsdelivr.net/npm/lit-element@2.0.1/+esm';
-import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs@1.8.24/+esm'
+} from 'https://esm.run/lit-element@2.0.1/lit-element.js';
+import dayjs from 'https://esm.run/dayjs@1.8.24/esm/index.js';
 import localizedFormat from "https://cdn.jsdelivr.net/npm/dayjs@1.8.24/esm/plugin/localizedFormat/index.js";
 
 dayjs.extend(localizedFormat);
