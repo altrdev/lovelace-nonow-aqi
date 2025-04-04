@@ -2,9 +2,9 @@ import {
   css,
   html,
   LitElement,
-} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
-import dayjs from "https://unpkg.com/dayjs@1.8.24/esm/index.js?module";
-import localizedFormat from "https://unpkg.com/dayjs@1.8.24/esm/plugin/localizedFormat/index.js";
+} from "https://esm.run/lit-element@2.0.1/lit-element.js?module";
+import dayjs from "https://cdn.jsdelivr.net/npm/dayjs@1.8.24/esm/index.js?module";
+import localizedFormat from "https://cdn.jsdelivr.net/npm/dayjs@1.8.24/esm/plugin/localizedFormat/index.js";
 
 dayjs.extend(localizedFormat);
 
