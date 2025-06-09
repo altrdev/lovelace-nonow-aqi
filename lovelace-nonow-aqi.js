@@ -29,11 +29,11 @@ class NonowAqi extends LitElement {
         : index < 101
         ? { color: "var(--label-badge-yellow)", desc: "Moderato", icon: "mdi:emoticon-happy" }
         : index < 151
-        ? { color: "var(--label-badge-orange)", desc: "Malsano gruppi sensibili", icon: "mdi:emoticon-neutral" }
+        ? { color: "var(--label-badge-orange)", desc: "Allergie", icon: "mdi:emoticon-neutral" }
         : index < 201
         ? { color: "var(--label-badge-red)", desc: "Malsano", icon: "mdi:emoticon-sad" }
         : index < 301
-        ? { color: "var(--label-badge-purple)", desc: "Molto malsano", icon: "mdi:emoticon-angry" }
+        ? { color: "var(--label-badge-purple)", desc: "OMG", icon: "mdi:emoticon-angry" }
         : { color: "var(--label-badge-maroon)", desc: "Pericoloso", icon: "mdi:emoticon-dead" };
 
 
