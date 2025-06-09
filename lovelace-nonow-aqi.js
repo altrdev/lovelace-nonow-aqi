@@ -25,16 +25,16 @@ class NonowAqi extends LitElement {
 
     const level =
       index < 51
-        ? { color: "var(--label-badge-green)", desc: "Buona", icon: "mdi:emoticon" }
+        ? { color: "var(--green-color)", desc: "Buona", icon: "mdi:emoticon" }
         : index < 101
-        ? { color: "var(--label-badge-yellow)", desc: "Moderato", icon: "mdi:emoticon-happy" }
+        ? { color: "var(--amber-color)", desc: "Moderato", icon: "mdi:emoticon-happy" }
         : index < 151
-        ? { color: "var(--label-badge-orange)", desc: "Allergie", icon: "mdi:emoticon-neutral" }
+        ? { color: "var(--orange-color)", desc: "Allergie", icon: "mdi:emoticon-neutral" }
         : index < 201
-        ? { color: "var(--label-badge-red)", desc: "Malsano", icon: "mdi:emoticon-sad" }
+        ? { color: "var(--red-color)", desc: "Malsano", icon: "mdi:emoticon-sad" }
         : index < 301
-        ? { color: "var(--label-badge-purple)", desc: "OMG", icon: "mdi:emoticon-angry" }
-        : { color: "var(--label-badge-maroon)", desc: "Pericoloso", icon: "mdi:emoticon-dead" };
+        ? { color: "var(--purple-color)", desc: "OMG", icon: "mdi:emoticon-angry" }
+        : { color: "var(--energy-gas-color)", desc: "Pericoloso", icon: "mdi:emoticon-dead" };
 
 
     return html`
